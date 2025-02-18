@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munscustomary</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Great Vibes', cursive;
+            color: gold;
+            background-color: black;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .grid-piece {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.pinimg.com/736x/4c/d0/5c/4cd05ca40b73d6d165ef279023da7b21.jpg');
+            background-size: 400% 400%;
+            position: relative;
+            animation: assembleGrid 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards,
+                       moveBackground 12s ease-in-out infinite alternate 2.5s;
+        }
+
+        .grid-piece:nth-child(1) { background-position: 0% 0%; animation-delay: 0s; transform: translate(-200%, -200%) scale(0); }
+        .grid-piece:nth-child(2) { background-position: 25% 0%; animation-delay: 0.2s; transform: translate(200%, -200%) scale(0); }
+        .grid-piece:nth-child(3) { background-position: 50% 0%; animation-delay: 0.4s; transform: translate(-200%, 200%) scale(0); }
+        .grid-piece:nth-child(4) { background-position: 75% 0%; animation-delay: 0.1s; transform: translate(200%, 200%) scale(0); }
+        .grid-piece:nth-child(5) { background-position: 0% 25%; animation-delay: 0.3s; transform: translate(-200%, -200%) scale(0); }
+        .grid-piece:nth-child(6) { background-position: 25% 25%; animation-delay: 0.6s; transform: translate(200%, -200%) scale(0); }
+        .grid-piece:nth-child(7) { background-position: 50% 25%; animation-delay: 0.5s; transform: translate(-200%, 200%) scale(0); }
+        .grid-piece:nth-child(8) { background-position: 75% 25%; animation-delay: 0.4s; transform: translate(200%, 200%) scale(0); }
+        .grid-piece:nth-child(9) { background-position: 0% 50%; animation-delay: 0.2s; transform: translate(-200%, -200%) scale(0); }
+        .grid-piece:nth-child(10) { background-position: 25% 50%; animation-delay: 0.5s; transform: translate(200%, -200%) scale(0); }
+        .grid-piece:nth-child(11) { background-position: 50% 50%; animation-delay: 0.3s; transform: translate(-200%, 200%) scale(0); }
+        .grid-piece:nth-child(12) { background-position: 75% 50%; animation-delay: 0.6s; transform: translate(200%, 200%) scale(0); }
+        .grid-piece:nth-child(13) { background-position: 0% 75%; animation-delay: 0.7s; transform: translate(-200%, -200%) scale(0); }
+        .grid-piece:nth-child(14) { background-position: 25% 75%; animation-delay: 0.4s; transform: translate(200%, -200%) scale(0); }
+        .grid-piece:nth-child(15) { background-position: 50% 75%; animation-delay: 0.8s; transform: translate(-200%, 200%) scale(0); }
+        .grid-piece:nth-child(16) { background-position: 75% 75%; animation-delay: 0.9s; transform: translate(200%, 200%) scale(0); }
+
+        @keyframes assembleGrid {
+            0% {
+                transform: translate(var(--initial-x, 0), var(--initial-y, 0)) scale(0);
+                opacity: 0;
+            }
+            60% {
+                transform: translate(0, 0) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            50% {
+                transform: scale(1.1) translate(-5%, -5%);
+            }
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        .navbar {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: gold;
+            padding: 20px 0;
+            font-size: 2.5em;
+            z-index: 1;
+            position: relative;
+        }
+
+        .navbar a {
+            color: gold;
+            text-decoration: none;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 20px;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            background-size: cover;
+            transform: translateX(-100vw);
+            animation: slideIn 1s forwards;
+            animation-delay: 2.5s; /* Immediate after grid animation ends */
+        }
+
+        .box:nth-child(1) {
+            background-image: url('https://www.ispwp.com/ContestImages/1475137290_01-julien-pontarolo-strasbourg-wedding-photographer.jpg');
+            animation-delay: 2.5s;
+        }
+
+        .box:nth-child(2) {
+            background-image: url('https://wallpapercave.com/wp/wp8822226.jpg');
+            animation-delay: 2.6s;
+        }
+
+        .box:nth-child(3) {
+            background-image: url('https://cdn.pixabay.com/photo/2022/03/26/09/03/rendering-7092551_1280.jpg');
+            animation-delay: 2.7s;
+        }
+
+        .box:nth-child(4) {
+            background-image: url('https://wallpapercave.com/wp/wp1937164.jpg');
+            animation-delay: 2.8s;
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: gold;
+            padding: 15px 0;
+            z-index: 1;
+        }
+
+        .bottom-nav a {
+            color: gold;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-grid">
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+        <div class="grid-piece"></div>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Munscustomary</a>
+    </div>
+
+    <div class="box-container">
+        <div class="box">Jewelry</div>
+        <div class="box">Art</div>
+        <div class="box">3D</div>
+        <div class="box">Sculpture</div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="hire.html">Hire</a>
+    </div>
+</body>
+</html>
